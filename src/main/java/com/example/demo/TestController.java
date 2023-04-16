@@ -1,12 +1,18 @@
 package com.example.demo;
 
+import jakarta.annotation.PostConstruct;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller("test")
 public class TestController {
     @GetMapping("/test")
-    public String boo() {
-        return "boo";
+    public String indexHtml() {
+        return "index.html";
+    }
+
+    @PostConstruct
+    void setUp() {
+        System.out.println("We`re ready to serve!");
     }
 }
